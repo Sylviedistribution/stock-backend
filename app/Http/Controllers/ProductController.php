@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category')->paginate(10);
+        $products = Product::with('category')->orderBy('id', 'desc')->paginate(10);
         return response()->json([
             'success' => true,
             'message' => 'Liste des produits récupérée avec succès',
